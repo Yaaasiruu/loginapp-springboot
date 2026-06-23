@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login Mahasiswa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="d-flex align-items-center justify-content-center">
+    <div class="card shadow-lg p-4" style="width: 380px;">
+        <div class="text-center mb-4">
+            <div class="fs-1">📖</div>
+            <h4 class="fw-bold">Login Mahasiswa</h4>
+            <p class="text-white small">Sistem Informasi Akademik</p>
+        </div>
+
+        <div th:if="${param.error}" class="alert alert-danger py-2 small">
+            ❌ Username atau password salah.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success py-2 small">
+            ✅ Anda berhasil logout.
+        </div>
+        <div th:if="${param.registered}" class="alert alert-info py-2 small">
+            ✅ Akun berhasil dibuat. Silakan login.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan username" required />
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Masukkan password" required />
+            </div>
+            <button type="submit" class="btn btn-login btn-primary w-100 py-2">Login</button>
+        </form>
+
+        <hr />
+        <p class="text-center small text-white mb-0">
+            Belum punya akun? <a th:href="@{/register}" >Register</a>
+        </p>
+    </div>
+</body>
+
+</html>

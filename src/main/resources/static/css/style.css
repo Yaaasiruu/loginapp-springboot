@@ -1,0 +1,91 @@
+body {
+    background: linear-gradient(135deg,
+            #4b0082 0%,
+            #5f27cd 50%,
+            #4834d4 100%);
+    min-height: 100vh;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    border: none;
+    border-radius: 12px;
+    color: white;
+}
+
+.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #8a2be2;
+    border-radius: 0;
+    color: white;
+}
+
+.form-control:focus {
+    background: transparent;
+    color: white;
+    border-color: #a55eea;
+    box-shadow: none;
+}
+
+.form-label {
+    color: #dcdde1;
+}
+
+.btn-login {
+    background: linear-gradient(90deg,
+            #6a11cb,
+            #8a2be2);
+    border: none;
+    border-radius: 25px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(90deg,
+            #7d2ae8,
+            #9c4dff);
+}
+
+a {
+    color: #c084fc;
+}
+
+a:hover {
+    color: white;
+}
+
+.card {
+    color: white;
+}
+
+.form-label {
+    color: white !important;
+}
+
+.form-control {
+    color: white !important;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+a {
+    color: white !important;
+}
+
+.login-footer{
+    color: white;
+}
+
+.login-footer a{
+    color: #d8b4fe; /* ungu muda */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}

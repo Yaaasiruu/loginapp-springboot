@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/dashboardcss/style.css}">
+</head>
+
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark px-4">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+            <img th:src="@{/images/ipwija.png}" alt="Logo IPWIJA" width="50" height="50" class="me-2">
+            Akademik IPWIJA
+        </a>
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-white small">
+                Halo, <strong sec:authentication="name">User</strong>
+                <span sec:authorize="hasRole('ADMIN')" class="badge bg-danger ms-1">ADMIN</span>
+                <span sec:authorize="hasRole('USER')" class="badge bg-primary ms-1">USER</span>
+            </span>
+            <form th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-sm btn-outline-light">
+                    Logout
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row g-4">
+            <div class="col-12">
+                <h4 class="fw-bold">Selamat Datang di Dashboard</h4>
+                <p class="text-muted">Pilih menu yang tersedia sesuai hak akses Anda.</p>
+                <div class="row g-3 mb-4" sec:authorize="hasRole('ADMIN')">
+
+                    <div class="col-md-4">
+                        <div class="card border-primary shadow-sm">
+                            <div class="card-body text-center">
+                                <h6>Total Mahasiswa</h6>
+                                <h2 th:text="${totalUser}">0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-success shadow-sm">
+                            <div class="card-body text-center">
+                                <h6>Total Admin</h6>
+                                <h2 th:text="${totalAdmin}">0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h6>Total Akun</h6>
+                                <h2 th:text="${totalAkun}">0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card shadow-sm mb-4">
+
+                    <div class="card-header bg-info text-white">
+                        📢 Pengumuman Akademik
+                    </div>
+
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            <li>UTS Semester Genap dimulai tanggal 20 Juni 2026.</li>
+                            <li>Registrasi mata kuliah dibuka hingga 18 Juni 2026.</li>
+                            <li>Pastikan data mahasiswa telah diperbarui.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Card untuk semua user -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="fs-2 mb-2">📅</div>
+                        <h5 class="card-title">Jadwal Perkuliahan</h5>
+                        <p class="card-text text-muted small">Lihat jadwal kuliah semester ini.</p>
+                        <button class="btn btn-sm btn-outline-primary">Lihat</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="fs-2 mb-2">📈</div>
+                        <h5 class="card-title">Penilaian Akademik</h5>
+                        <p class="card-text text-muted small">
+
+                            <span sec:authorize="hasRole('USER')">
+                                Pantau perkembangan nilai kamu.
+                            </span>
+
+                            <span sec:authorize="hasRole('ADMIN')">
+                                Pantau perkembangan nilai mahasiswa.
+                            </span>
+
+                        </p>
+                        <button class="btn btn-sm btn-outline-success">Lihat</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card khusus ADMIN -->
+            <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
+                <div class="card shadow-sm border-danger h-100">
+                    <div class="card-body">
+                        <div class="fs-2 mb-2">⚙️</div>
+                        <h5 class="card-title text-danger">Panel Admin</h5>
+                        <p class="card-text text-muted small">Kelola data mahasiswa dan sistem.</p>
+                        <a th:href="@{/admin}" class="btn btn-sm btn-danger">Buka Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-sm mt-4 mb-2" sec:authorize="hasRole('ADMIN')">
+
+            <div class="card-header bg-secondary text-white">
+                📈 Aktivitas Sistem
+            </div>
+
+            <div class="card-body">
+
+                <ul class="list-group">
+
+                    <li class="list-group-item mb-3">
+                        🔐 Admin berhasil login ke sistem.
+                    </li>
+
+                    <li class="list-group-item mb-3">
+                        👤 User baru berhasil registrasi.
+                    </li>
+
+                    <li class="list-group-item">
+                        📚 Data akademik terakhir diperbarui.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

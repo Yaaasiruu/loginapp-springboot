@@ -1,0 +1,97 @@
+body {
+    background: #f4f0f7 !important;
+}
+
+/* Navbar */
+.navbar {
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.navbar-brand {
+    color: black !important;
+    font-weight: 700;
+}
+
+.navbar .text-white,
+.navbar strong {
+    color: #333 !important;
+}
+
+/* Logout */
+.btn-outline-light {
+    color: #b66dff !important;
+    border-color: #b66dff !important;
+}
+
+.btn-outline-light:hover {
+    background: #b66dff !important;
+    color: white !important;
+}
+
+/* Panel Admin */
+.border-danger {
+    border: 2px solid #b66dff !important;
+}
+
+.text-danger {
+    color: #b66dff !important;
+}
+
+.btn-danger {
+    background: #b66dff !important;
+    border-color: #b66dff !important;
+}
+
+.btn-danger:hover {
+    background: #9c4dff !important;
+    border-color: #9c4dff !important;
+}
+
+/* Pengumuman */
+.bg-info {
+    background: linear-gradient(
+        135deg,
+        #b66dff,
+        #d39cff
+    ) !important;
+}
+
+/* Aktivitas */
+.bg-secondary {
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #c084fc
+    ) !important;
+}
+
+/* Badge */
+.badge.bg-primary {
+    background: #6c63ff !important;
+}
+
+.badge.bg-danger {
+    background: #b66dff !important;
+}
+
+/* Tombol */
+.btn-outline-primary {
+    border-color: #b66dff;
+    color: #b66dff;
+}
+
+.btn-outline-primary:hover {
+    background: #b66dff;
+    color: white;
+}
+
+.btn-outline-success {
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+.btn-outline-success:hover {
+    background: #8b5cf6;
+    color: white;
+}
